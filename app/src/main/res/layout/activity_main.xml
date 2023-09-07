@@ -11,6 +11,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Button"
-        tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="237dp" />
+        tools:layout_editor_absoluteX="449dp"
+        tools:layout_editor_absoluteY="187dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="997dp"
+        android:layout_height="885dp"
+        android:background="#191515"
+        app:srcCompat="@drawable/taskk"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="4dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
