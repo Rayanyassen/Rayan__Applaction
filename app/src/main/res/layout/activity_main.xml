@@ -8,18 +8,19 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="440dp"
+        android:layout_height="220dp"
         android:text="Button"
-        tools:layout_editor_absoluteX="449dp"
-        tools:layout_editor_absoluteY="187dp" />
+        tools:layout_editor_absoluteX="781dp"
+        tools:layout_editor_absoluteY="348dp" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="997dp"
-        android:layout_height="885dp"
+        android:layout_width="2110dp"
+        android:layout_height="1388dp"
+        android:layout_marginTop="4dp"
         android:background="#191515"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/taskk"
-        tools:layout_editor_absoluteX="-1dp"
-        tools:layout_editor_absoluteY="4dp" />
+        tools:layout_editor_absoluteX="-42dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
