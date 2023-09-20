@@ -1,15 +1,18 @@
 package data.myTasksTable;
 //هذا تمثل المهمه
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 @Entity
 public class MyTasks {
+    @PrimaryKey(autoGenerate = true)
     public long keyid;//رقم المهمه
-    String tasks;//المهمات
-    int importance;//جه الاهمية
-    long subjid;
-    long userid;
+    @ColumnInfo(name = "textTasks")// اعطاء اسم جديد للعامود- الصفة في الجدول
+    String text;//نص المهمات
+    int importance;//درجه الاهمية 1-5
+    long subjid;//رقم موضوع المهمة
+    long userid;//رقم مستعمل الذي اضاف المهمه
     long time;//وقت انتاج المهمه
 
     public long getKeyid() {
@@ -20,12 +23,12 @@ public class MyTasks {
         this.keyid = keyid;
     }
 
-    public String getTasks() {
-        return tasks;
+    public String getText() {
+        return text;
     }
 
-    public void setTasks(String tasks) {
-        this.tasks = tasks;
+    public void setText(String text) {
+        this.text = text;
     }
 
     public int getImportance() {
@@ -64,7 +67,7 @@ public class MyTasks {
     public String toString() {
         return "MyTasks{" +
                 "keyid=" + keyid +
-                ", tasks='" + tasks + '\'' +
+                ", tasks='" + text+ '\'' +
                 ", importance=" + importance +
                 ", subjid=" + subjid +
                 ", userid=" + userid +
