@@ -1,12 +1,13 @@
 package data.myTasksTable;
+//هذا تمثل المهمه
 
-
+import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-
+@Entity
 public class MyTasks {
-    public long keyid;
-    String tasks;
-    int importance;//
+    public long keyid;//رقم المهمه
+    String tasks;//المهمات
+    int importance;//جه الاهمية
     long subjid;
     long userid;
     long time;//وقت انتاج المهمه
