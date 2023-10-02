@@ -9,23 +9,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical" >
 
         <Button
-            android:id="@+id/button6"
+            android:id="@+id/btnsave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:layout_margin="8dp"
+            android:text="Save" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/1"
+                android:id="@+id/ETemail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="rayan yassen" />
+                android:layout_margin="8dp"
+                android:hint="Email" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -33,9 +35,11 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ETpassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="rayan al hont" />
+                android:layout_margin="8dp"
+                android:hint="Password" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -43,9 +47,11 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ETrepassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="rayan hummod" />
+                android:layout_margin="8dp"
+                android:hint="Re-Password" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -53,9 +59,11 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ETname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="بس بس ميو" />
+                android:layout_margin="8dp"
+                android:hint="name" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -63,9 +71,11 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ETphone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="راحت عليك دوووووووود" />
+                android:layout_margin="8dp"
+                android:hint="phone" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
