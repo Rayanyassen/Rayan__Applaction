@@ -20,10 +20,6 @@ public class MyTasks {
         return keyid;
     }
 
-    public void setKeyid(long keyid) {
-        this.keyid = keyid;
-    }
-
     public String getText() {
         return text;
     }
