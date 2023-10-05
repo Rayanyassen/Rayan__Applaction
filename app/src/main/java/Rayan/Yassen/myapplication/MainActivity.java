@@ -2,6 +2,7 @@ package Rayan.Yassen.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.icu.text.CaseMap;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -34,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
         subjectQuery.insert(s1);
         subjectQuery.insert(s2);
         //فحص هل تم  حفظ ما سبق 5
-        // استخراج وطباعهة جميع معطيات الجدول المواضيع
+        // استخراج وطباعة جميع معطيات الجدول المواضيع
         List<MySubject> allSubjects=subjectQuery.getAll();
         for (MySubject s: allSubjects) {
             Log.d("rayan",s.Title);
-        }
+            Toast.makeText(this,"OnCreate:",Toast.LENGTH_SHORT).show();       }
     }
 
 
