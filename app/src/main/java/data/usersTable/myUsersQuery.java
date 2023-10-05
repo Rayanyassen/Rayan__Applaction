@@ -16,7 +16,7 @@ public interface myUsersQuery {
     @Query("SELECT * FROM myusers")
     List<myusers> getAll();
 
-    @Query("SELECT * FROM myusers WHERE keyid IN (:userIds)")
+    @Query("SELECT * FROM  myusers WHERE keyid IN (:userIds)")
     List<myusers> loadAllByIds(int[] userIds);
 
     @Query("SELECT * FROM myusers WHERE email = :myEmail AND " +
@@ -32,7 +32,7 @@ public interface myUsersQuery {
     @Query("Delete From myusers WHERE keyid=:id ")
     void delete(int id);
 
-    @Insert
+        @Insert
     void insert(myusers myUser);
     @Update
     void update(myusers...values);

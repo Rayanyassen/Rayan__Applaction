@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.util.List;
+
 import data.AppDataBase;
 import data.SubjectTable.MySubject;
 import data.SubjectTable.MySubjectQuery;
@@ -22,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         //بناء قاعدة بيانات وارجاع مؤشر عليها 1
         AppDataBase db= AppDataBase.getDB(getApplicationContext()) ;
         //مؤشر لكائن عمليات لجدول  2
-        MySubjectQuery subjectQuery = db.getMySubjectQuery();
+        MySubjectQuery subjectQuery=db.getMySubjectQuery();
         //بناء كائن من نوع الجدول و تحديد قيم الصفات 3
         MySubject s1 = new MySubject();
         s1.setTitle("Math");
@@ -31,12 +33,12 @@ public class MainActivity extends AppCompatActivity {
         //اضافه كائن للجدول 4
         subjectQuery.insert(s1);
         subjectQuery.insert(s2);
-
-
-
-
-
-
+        //فحص هل تم  حفظ ما سبق 5
+        // استخراج وطباعهة جميع معطيات الجدول المواضيع
+        List<MySubject> allSubjects=subjectQuery.getAll();
+        for (MySubject s: allSubjects) {
+            Log.d("rayan",s.Title);
+        }
     }
 
 
