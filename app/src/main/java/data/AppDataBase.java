@@ -6,7 +6,6 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import data.SubjectTable.MySubject;
 import data.SubjectTable.MySubjectQuery;
 import data.myTasksTable.MyTasks;
 import data.myTasksTable.MyTasksQuery;

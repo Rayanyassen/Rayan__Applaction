@@ -1,11 +1,10 @@
 package Rayan.Yassen.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.icu.text.CaseMap;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
@@ -14,7 +13,7 @@ import data.SubjectTable.MySubject;
 import data.SubjectTable.MySubjectQuery;
 
 
-public class MainActivity extends AppCompatActivity {
+public class        MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
