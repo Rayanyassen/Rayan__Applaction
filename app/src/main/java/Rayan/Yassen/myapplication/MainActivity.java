@@ -1,7 +1,10 @@
 package Rayan.Yassen.myapplication;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,11 +17,26 @@ import data.SubjectTable.MySubjectQuery;
 
 
 public class        MainActivity extends AppCompatActivity {
-
+        //spnr1 تعريف صفة للكائن المرئي
+        private Spinner spnrSubject;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //spnr2 وضع المؤشر  الصفة  على الكائن المرئي الموجود بواسطة المستعمل
+        spnrSubject= findViewById(R.id.spnrSubject);
+
+        //spnr3 بناء  االوسيط وتحديد واجهة تنسيق لمعطى واحد
+        ArrayAdapter<String> adapter= new ArrayAdapter<>(getApplicationContext(),
+                android.R.layout.simple_spinner_item);
+        //spnr4 data source (ممكن ان يكون قائمه  من قاعده بيانات مثلا) مصدر معطيات
+        String[] ar={"Math","CS","PHs","Arb","Eng"};
+        //spnr5 تحديد المعطيات للوسيط
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                adapter.addAll(ar);
+        //spnr6
+        spnrSubject.setAdapter(adapter);
+
         Log.d("yassen", "onCreate: ");
         Toast.makeText(this, "onCreate:",Toast.LENGTH_SHORT).show();
         //بناء قاعدة بيانات وارجاع مؤشر عليها 1
