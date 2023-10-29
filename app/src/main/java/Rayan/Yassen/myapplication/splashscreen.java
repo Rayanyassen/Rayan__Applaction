@@ -2,7 +2,6 @@ package Rayan.Yassen.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.icu.text.CaseMap;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -14,12 +13,12 @@ import data.SubjectTable.MySubject;
 import data.SubjectTable.MySubjectQuery;
 
 
-public class MainActivity extends AppCompatActivity {
+public class splashscreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.splashscreenactivty);
         Log.d("yassen", "onCreate: ");
         Toast.makeText(this, "onCreate:",Toast.LENGTH_SHORT).show();
         //بناء قاعدة بيانات وارجاع مؤشر عليها 1
