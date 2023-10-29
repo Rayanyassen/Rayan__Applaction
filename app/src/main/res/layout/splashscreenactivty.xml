@@ -4,35 +4,5 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".splashscreen">
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="105dp"
-        android:layout_height="48dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="519dp"
-        tools:layout_editor_absoluteY="667dp" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="554dp"
-        tools:layout_editor_absoluteY="547dp" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/taskk"
-        tools:layout_editor_absoluteX="202dp"
-        tools:layout_editor_absoluteY="80dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"></LinearLayout>
-
-</RelativeLayout>
+    android:background="@drawable/taskk"
+    tools:context=".splashscreen" />
