@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".MainActivity2">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -13,9 +13,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:clickable="true"
-        android:contentDescription="@string/app_name"
-        app:srcCompat="@drawable/ic_launcher_background"
-        tools:ignore="ImageContrastCheck,ImageContrastCheck" />
+        app:srcCompat="@android:drawable/ic_input_add"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,16 +24,19 @@
         <androidx.appcompat.widget.SearchView
             android:id="@+id/srchV"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <Spinner
-            android:id="@+id/spnrSubject"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/istvTasks"
+
+        <Spinner
+            android:id="@+id/spnrSubject2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
+        <ListView
+            android:id="@+id/lstvTasks"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
     </LinearLayout>
 </RelativeLayout>

@@ -5,4 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/taskk"
-    tools:context=".splashscreen" />
+    tools:context=".splashscreen" >
+
+    <TextView
+        android:id="@+id/ET_Text"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="welcome to my kingdom" />
+</RelativeLayout>
