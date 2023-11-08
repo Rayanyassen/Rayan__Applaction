@@ -21,15 +21,9 @@ public class SignIn extends AppCompatActivity {
         //to close current activity
         finish();
     }
-    public void onclickGo2(View v)
-    {
-        Intent i= new Intent(SignIn.this, Sign_up.class);
-        startActivity(i);
-        //to close current activity
-        finish();
-    }
 
-    public void onclickGo3(View v)
+
+    public void onclickGo2(View v)
     {
         Intent i= new Intent(SignIn.this,MainActivity2.class);
         startActivity(i);
