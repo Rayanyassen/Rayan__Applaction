@@ -10,7 +10,10 @@ import android.os.Handler;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.List;
 import java.util.logging.LogRecord;
@@ -23,12 +26,15 @@ import data.SubjectTable.MySubjectQuery;
 public class splashscreen extends AppCompatActivity {
     //spnr1 تعريف صفه الكائن المرئي
     private Spinner spnrSubject;
+    private TextView ET_Text;
+
     
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splashscreenactivty);
+        ET_Text= findViewById(R.id.ET_Text);
 
         Log.d("yassen", "onCreate: ");
         Toast.makeText(this, "onCreate:", Toast.LENGTH_SHORT).show();
