@@ -7,14 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class Sign_up extends AppCompatActivity {
-    private TextInputLayout Et_emailsignup ;
-    private TextInputLayout ETpassword;
-    private TextInputLayout ETrepassword;
-    private TextInputLayout ETname;
-    private TextInputLayout ETphone;
+    private TextInputEditText Et_emailsignup ;
+    private TextInputEditText ETpassword;
+    private TextInputEditText ETrepassword;
+    private TextInputEditText ETname;
+    private TextInputEditText ETphone;
     private Button btnsavesignup;
     private Button btnCancel;
 

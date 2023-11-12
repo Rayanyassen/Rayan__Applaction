@@ -7,14 +7,15 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class AddTaskActivty extends AppCompatActivity {
-    private TextInputLayout etE_mail;
-    private TextInputLayout etpassword;
-    private TextInputLayout etre_password ;
-    private TextInputLayout etname ;
-    private TextInputLayout etphone;
+    private TextInputEditText etE_mail;
+    private TextInputEditText etpassword;
+    private TextInputEditText etre_password ;
+    private TextInputEditText etname ;
+    private TextInputEditText etphone;
     private Button btnSave;
     private Button BTNCancel;
     private TextView tvImpoertance;
