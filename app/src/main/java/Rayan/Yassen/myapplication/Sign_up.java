@@ -41,6 +41,13 @@ public class Sign_up extends AppCompatActivity {
         String email = Et_emailsignup.getText().toString();
         //استخراج نص كلمه المرور
         String password = ETpassword.getText().toString();
+        //استخراج نص اعادة كلمه المرور
+        String repassword = ETrepassword.getText().toString();
+        // استخراج نص من رقم هاتف
+        String phone=ETphone.getText().toString();
+        //استخراج نص لأسمك
+        String name = ETname.getText().toString();
+
         //فحص الايمل ان كان طوله اقل من 6 او لا يحوي @ فهو خطأ
         if (email.length() < 6 || email.contains("@") == false) {
             //تعديل المتغير ليدل على ان الفحص يهطي نتيجه خاطئه
@@ -52,19 +59,37 @@ public class Sign_up extends AppCompatActivity {
         if (password.length() < 8 && password.length() >20  || password.contains("") == true) {
             isAllok = false;
             ETpassword.setError("Password between 8 - 20 letters");
+        }
+        if ( ! repassword.equals(password)) {
+                isAllok = false;
+                ETrepassword.setError("should be the same password");
+            }
+
+
+            if (phone.length()>10 || phone.contains("")==true)
+           {
+               isAllok=false;
+               ETphone.setError("phone number is 10 numbers");
+
+            }
 
         }
-        if (isAllok) {
+        if (isAllok)
+        {
             Toast.makeText(this, "All Ok", Toast.LENGTH_SHORT).show();
         }
     }
-    public void onclickBTNSAVE(View v) {
-        if(checkEmailPassw()){
-            Intent i = new Intent(Sign_up.this, SignIn.class);
-            startActivity(i);
-            //to close current activity
-            finish();
-        }
 
+    public void onclickBTNSAVE(View v) {
+        checkEmailPassw();
+
+
+
+    }
+    public void onclickBTNCancel(View v){
+        Intent i = new Intent(Sign_up.this, SignIn.class);
+        startActivity(i);
+        //to close current activity
+        finish();
     }
 }
