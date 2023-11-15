@@ -8,14 +8,10 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
 public class AddTaskActivty extends AppCompatActivity {
-    private TextInputEditText etE_mail;
-    private TextInputEditText etpassword;
-    private TextInputEditText etre_password ;
-    private TextInputEditText etname ;
-    private TextInputEditText etphone;
+    private TextInputEditText etshort_title;
+    private TextInputEditText et_Text;
     private Button btnSave;
     private Button BTNCancel;
     private TextView tvImpoertance;
@@ -25,11 +21,8 @@ public class AddTaskActivty extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task_activty);
-        etE_mail=findViewById(R.id.etE_mail);
-        etpassword=findViewById(R.id.etpassword);
-        etre_password=findViewById(R.id.etre_password);
-        etname=findViewById(R.id.etname);
-        etphone=findViewById(R.id.etphone);
+        etshort_title=findViewById(R.id.etshort_title);
+        et_Text=findViewById(R.id.et_Text);
         btnSave=findViewById(R.id.btnSave);
         BTNCancel=findViewById(R.id.BTNCancel);
         tvImpoertance=findViewById(R.id.tvImpoertance);
@@ -38,4 +31,5 @@ public class AddTaskActivty extends AppCompatActivity {
 
 
     }
+
 }

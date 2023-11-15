@@ -36,14 +36,7 @@ public class SignIn extends AppCompatActivity {
     }
 
 
-    public void onclickbtn_signIn(View v)
-    {
-        checkEmailPassw();
-//        Intent i= new Intent(SignIn.this,MainActivity2.class);
-//        startActivity(i);
-//        //to close current activity
-//        finish();
-    }
+
     private void checkEmailPassw() {
         boolean isAllok = true; //يفحص الحقول ان كانت سليمة
         //استخراج النص من حقل الايميل
@@ -57,7 +50,7 @@ public class SignIn extends AppCompatActivity {
             // عرض ملاحظه خطا على الشاشه داخل حقل البريد
             Et_E_mail.setError("Wrong Email");
 
-        }if(password.length()<8||password.contains("")==true){
+        }if(password.length()< 8||password.contains("")==true){
             isAllok=false;
             Et_Password.setError("Wrong Password");
 
@@ -65,6 +58,14 @@ public class SignIn extends AppCompatActivity {
         if(isAllok){
             Toast.makeText(this,"All Ok" , Toast.LENGTH_SHORT).show();
         }
+    }
+    public void onclickbtn_signIn(View v)
+    {
+        checkEmailPassw();
+        Intent i= new Intent(SignIn.this,MainActivity2.class);
+        startActivity(i);
+        //to close current activity
+        finish();
     }
     }
 
