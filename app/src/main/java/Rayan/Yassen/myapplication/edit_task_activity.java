@@ -3,9 +3,11 @@ package Rayan.Yassen.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -32,4 +34,5 @@ public class edit_task_activity extends AppCompatActivity {
         etText=findViewById(R.id.etText);
 
     }
+
 }

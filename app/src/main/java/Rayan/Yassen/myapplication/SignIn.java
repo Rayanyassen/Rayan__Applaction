@@ -9,8 +9,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
-
 public class SignIn extends AppCompatActivity {
     private TextInputEditText Et_E_mail;
     private TextInputEditText Et_Password;
