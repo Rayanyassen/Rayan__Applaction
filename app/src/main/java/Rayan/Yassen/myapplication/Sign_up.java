@@ -13,6 +13,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import data.AppDataBase;
 import data.usersTable.myUsersQuery;
+import data.usersTable.myusers;
 
 public class Sign_up extends AppCompatActivity {
     private TextInputEditText Et_emailsignup;
@@ -78,11 +79,10 @@ public class Sign_up extends AppCompatActivity {
 
         if (isAllok) {
             Toast.makeText(this, "All Ok", Toast.LENGTH_SHORT).show();
-            //بناء قاعدة وارجاع مؤشر عليها1
-            AppDataBase db=AppDataBase.getDB(getApplicationContext());
-            //مؤشر لكائن عمليات الجدول2
-            myUsersQuery usersQuery=db.getMyUserQuery();
-            //اتدعاء العملية التي تنفذ الاستعلام الذي يفحص البريد و كلمة المرور ويعيد كائنا ان كان موجودا او ان لم يكن موجود null
+
+
+
+
         }
 
     }

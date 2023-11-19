@@ -9,6 +9,11 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+
+import data.AppDataBase;
+import data.usersTable.myUsersQuery;
+import data.usersTable.myusers;
+
 public class SignIn extends AppCompatActivity {
     private TextInputEditText Et_E_mail;
     private TextInputEditText Et_Password;
@@ -55,6 +60,17 @@ public class SignIn extends AppCompatActivity {
         }
         if(isAllok){
             Toast.makeText(this,"All Ok" , Toast.LENGTH_SHORT).show();
+            //بناء قاعدة وارجاع مؤشر عليها1
+            AppDataBase db=AppDataBase.getDB(getApplicationContext());
+            //مؤشر لكائن عمليات الجدول2
+            myUsersQuery usersQuery=db.getMyUserQuery();
+            //استدعاء العملية التي تنفذ الاستعلام الذي يفحص البريد و كلمة المرور ويعيد كائنا ان كان موجودا او ان لم يكن موجود null
+            myusers myUser=usersQuery.checkEmailPassw(email,password);
+            if(myUser==null)//هل لا يوجد كائن حسب الايميل والباسورد
+            {
+                Toast.makeText(this,"Wrong Email or Password ", Toast.LENGTH_LONG).show();
+
+            }
         }
     }
     public void onclickbtn_signIn(View v)
