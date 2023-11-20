@@ -82,7 +82,7 @@ public class Sign_up extends AppCompatActivity {
             AppDataBase db = AppDataBase.getDB(getApplicationContext());
             myUsersQuery usersQuery=db.getMyUserQuery();
             //فحص هل البريد الالكتروني موجود من قبل اي تم تسجيل من قبل
-            if(usersQuery.checkEmailPassw(email)!=null){
+            if(usersQuery.checkEmail(email)!=null){
                 Et_emailsignup.setError("found Email");
             }
             else// ان لم يكن موجودا نقوم ببناء كاءن للمستعمل وادخاله في الجدول Myuser المستعملين
@@ -91,6 +91,15 @@ public class Sign_up extends AppCompatActivity {
                 myusers myuser= new myusers();
                 //تحديد قيم الصفات بالقيم التي استخرجناها
                 myuser.email=email;
+                myuser.fullName=name;
+                myuser.phone=phone;
+                myuser.passw=password;
+                //اضافه الكائن الجديد للجدول
+                usersQuery.insert(myuser);
+                //اغلاق الشاشه الحالية
+                finish();
+
+
            }
 
 
