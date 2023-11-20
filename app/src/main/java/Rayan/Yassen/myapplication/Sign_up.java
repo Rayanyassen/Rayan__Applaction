@@ -79,7 +79,19 @@ public class Sign_up extends AppCompatActivity {
 
         if (isAllok) {
             Toast.makeText(this, "All Ok", Toast.LENGTH_SHORT).show();
-
+            AppDataBase db = AppDataBase.getDB(getApplicationContext());
+            myUsersQuery usersQuery=db.getMyUserQuery();
+            //فحص هل البريد الالكتروني موجود من قبل اي تم تسجيل من قبل
+            if(usersQuery.checkEmailPassw(email)!=null){
+                Et_emailsignup.setError("found Email");
+            }
+            else// ان لم يكن موجودا نقوم ببناء كاءن للمستعمل وادخاله في الجدول Myuser المستعملين
+            {
+                // بناء الكائن
+                myusers myuser= new myusers();
+                //تحديد قيم الصفات بالقيم التي استخرجناها
+                myuser.email=email;
+           }
 
 
 

@@ -71,6 +71,12 @@ public class SignIn extends AppCompatActivity {
                 Toast.makeText(this,"Wrong Email or Password ", Toast.LENGTH_LONG).show();
 
             }
+            else
+            {//ان كان هنالك حساب الايميل و الباسورد ننتقل الى الشاشه الرئيسية
+                Intent i=new Intent(SignIn.this,MainActivity2.class);
+                startActivity(i);
+                finish();
+            }
         }
     }
     public void onclickbtn_signIn(View v)
