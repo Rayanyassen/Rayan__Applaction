@@ -33,5 +33,4 @@ public interface MySubjectQuery {
     @Update
     void update(MySubject... values);
 
-
 }
