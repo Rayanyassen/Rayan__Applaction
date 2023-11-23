@@ -2,8 +2,10 @@ package Rayan.Yassen.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -57,6 +59,16 @@ public class AddTaskActivty extends AppCompatActivity {
         //مصدر معطيات : استخراج جميع المواضيع من الجداول
         List<MySubject> allSubject = subjectQuery.getAll();
         //تجهيز الوسيط
+        ArrayAdapter<MySubject>adapter=new ArrayAdapter<MySubject>(this, android.R.layout.simple_dropdown_item_1line);
+        adapter.addAll(allSubject);//اضافه جميع المعطيات للوسيط
+        autoEtSubj.setAdapter(adapter);// ربط الحقل بالوسيط
+        //معالجة حدث لعرض المواضيع عند الضغط على الحقل
+        autoEtSubj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                autoEtSubj.showDropDown();
+            }
+        });
 
     }
         private void checkSaveandCancel ()
@@ -88,9 +100,24 @@ public class AddTaskActivty extends AppCompatActivity {
             }
 
 
+
         }
-
-
+    public void onclickSAVE(View v)
+    {
+        checkSaveandCancel();
+        Intent i= new Intent(AddTaskActivty.this,MainActivity2.class);
+        startActivity(i);
+        finish();
     }
+    public void onclickCancel(View v){
+        Intent i= new Intent(AddTaskActivty.this,MainActivity2.class);
+        startActivity(i);
+        finish();
+    }
+
+
+
+
+}
 
 

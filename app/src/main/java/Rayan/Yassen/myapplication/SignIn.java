@@ -82,10 +82,7 @@ public class SignIn extends AppCompatActivity {
     public void onclickbtn_signIn(View v)
     {
         checkEmailPassw();
-        Intent i= new Intent(SignIn.this,MainActivity2.class);
-        startActivity(i);
-        //to close current activity
-        finish();
+
     }
     }
 

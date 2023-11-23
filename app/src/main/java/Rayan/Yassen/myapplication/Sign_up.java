@@ -60,7 +60,7 @@ public class Sign_up extends AppCompatActivity {
             Et_emailsignup.setError("Wrong Email");
 
         }
-        if (password.length() < 8 && password.length() > 20 || password.contains("") == true) {
+        if (password.length() <= 8 || password.length() >= 20 || password.contains(" ") == true) {
             isAllok = false;
             ETpassword.setError("Password between 8 - 20 letters");
         }
@@ -70,7 +70,7 @@ public class Sign_up extends AppCompatActivity {
         }
 
 
-        if (phone.length() > 10 || phone.contains("") == true) {
+        if (phone.length() > 10 || phone.contains(" ") == true) {
             isAllok = false;
             ETphone.setError("phone number is 10 numbers");
 
@@ -98,8 +98,6 @@ public class Sign_up extends AppCompatActivity {
                 usersQuery.insert(myuser);
                 //اغلاق الشاشه الحالية
                 finish();
-
-
            }
 
 
@@ -110,6 +108,10 @@ public class Sign_up extends AppCompatActivity {
     public void onclickBTNSAVE(View V)
     {
         checkEmailPassw();
+        Intent i = new Intent(Sign_up.this, SignIn.class);
+        startActivity(i);
+        //to close current activity
+        finish();
 
 
 
