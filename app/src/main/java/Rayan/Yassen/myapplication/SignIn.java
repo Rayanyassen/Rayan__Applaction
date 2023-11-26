@@ -46,6 +46,8 @@ public class SignIn extends AppCompatActivity {
         String email = Et_E_mail.getText().toString();
         //استخراج نص كلمه المرور
         String password = Et_Password.getText().toString();
+
+
         //فحص الايمل ان كان طوله اقل من 6 او لا يحوي @ فهو خطأ
         if (email.length() < 6 || email.contains("@") == false) {
             //تعديل المتغير ليدل على ان الفحص يهطي نتيجه خاطئه
@@ -53,7 +55,9 @@ public class SignIn extends AppCompatActivity {
             // عرض ملاحظه خطا على الشاشه داخل حقل البريد
             Et_E_mail.setError("Wrong Email");
 
-        }if(password.length()< 8||password.contains(" ")==true){
+        }
+        if(password.length()< 8||password.contains(" ")==true)
+        {
             isAllok=false;
             Et_Password.setError("Wrong Password");
 

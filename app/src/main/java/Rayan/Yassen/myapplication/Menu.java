@@ -3,6 +3,7 @@ package Rayan.Yassen.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -30,6 +31,7 @@ public class Menu extends AppCompatActivity {
         }
         if (item.getItemId() == R.id.itmSignOut) {
             Toast.makeText(this, "Log Out", Toast.LENGTH_SHORT).show();
+
 
         }
         return true ;
