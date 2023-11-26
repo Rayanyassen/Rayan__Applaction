@@ -22,15 +22,17 @@ public class Menu extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected( MenuItem item) {
         if (item.getItemId() == R.id.itmsetting) {
             Toast.makeText(this, "Setting", Toast.LENGTH_SHORT).show();
 
+
         }
         if (item.getItemId() == R.id.itmSignOut) {
-            Toast.makeText(this, "Sign Out", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Log Out", Toast.LENGTH_SHORT).show();
 
         }
         return true ;
+
     }
 }

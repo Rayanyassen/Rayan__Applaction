@@ -53,7 +53,7 @@ public class SignIn extends AppCompatActivity {
             // عرض ملاحظه خطا على الشاشه داخل حقل البريد
             Et_E_mail.setError("Wrong Email");
 
-        }if(password.length()< 8||password.contains("")==true){
+        }if(password.length()< 8||password.contains(" ")==true){
             isAllok=false;
             Et_Password.setError("Wrong Password");
 
@@ -82,6 +82,7 @@ public class SignIn extends AppCompatActivity {
     public void onclickbtn_signIn(View v)
     {
         checkEmailPassw();
+
 
     }
     }
