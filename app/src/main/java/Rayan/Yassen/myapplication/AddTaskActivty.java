@@ -97,6 +97,67 @@ public class AddTaskActivty extends AppCompatActivity {
 
             if (isAllOK) {
                 Toast.makeText(this, "All OK", Toast.LENGTH_SHORT).show();
+
+                private void checkShortTitleAndText()
+                {
+
+                    boolean isAllOk=true; // يحوي نتيجة فحص الحقول ان كانت سليمة
+
+                    String shortTitle=etshorttitle.getText().toString();
+                    String text=ettext.getText().toString();
+                    String whichsubj=autoETsubj.getText().toString();
+
+
+                    int importancee=skbrlimportance.getProgress();
+
+
+                    if (shortTitle.length()<1)
+                    {
+                        isAllOk=false;
+                        etshorttitle.setError("short title is empty");
+                    }
+
+                    if (text.length()<1)
+                    {
+                        isAllOk=false;
+                        ettext.setError("text is empty");
+                    }
+                    if (whichsubj.length()<1)
+                    {
+                        isAllOk=false;
+                        autoETsubj.setError("you didn't chose the subject");
+
+                    }
+
+                    if (isAllOk)
+                    {
+                        Toast.makeText(this,"All ok",Toast.LENGTH_SHORT).show();
+                        AppDataBase db=AppDataBase.getDB(getApplicationContext());
+                        MysubjectQuery subjectQuery=db.getMySubjectQuery();
+
+
+                        if (subjectQuery.checkSubject(whichsubj)==null) // فحص هل الموضوع من قبل بالجدول
+                        {
+                            //بناء موضوع جديد واضافته
+                            Mysubject subject=new Mysubject();
+                            subject.title=whichsubj;
+                            subjectQuery.insertsubject(subject);
+                        }
+                        //استخراج id الموضوع لأننا بحاجة لرقمه التسلسلي
+
+                        Mysubject subject= subjectQuery.checkSubject(whichsubj);
+
+
+                        Mytask task=new Mytask();
+                        task.importance=importancee;
+                        task.text=text;
+                        task.shortTitle=shortTitle;
+                        task.subid=subject.getKeyid();//تحديد رقم الموضوع للمهة
+                        db.getMyTaskQuery().insertTask(task);//اضافة المهمة للجدول
+                        finish();
+
+                    }
+
             }
 
 

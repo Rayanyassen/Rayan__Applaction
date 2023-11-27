@@ -23,7 +23,6 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
        fabAdd=findViewById(R.id.fabAdd);
        fabAdd.setOnClickListener(new View.OnClickListener() {
-           @Override
            public void onClick(View v) {
 
 
@@ -39,4 +38,5 @@ public class MainActivity2 extends AppCompatActivity {
        lstvTasks=findViewById(R.id.lstvTasks);
 
     }
+
 }
