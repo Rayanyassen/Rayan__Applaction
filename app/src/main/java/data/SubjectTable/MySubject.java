@@ -7,6 +7,9 @@ public class MySubject {
     public long keyid;//رقم المهمه
     public String Title;/// عنوان الموضوع
 
+    public long getKeyid() {
+        return keyid;
+    }
 
     public void setKeyid(long keyid) {
         this.keyid = keyid;

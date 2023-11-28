@@ -14,6 +14,7 @@ public class MyTasks {
     public long subjid;//رقم موضوع المهمة
     public long userid;//رقم مستعمل الذي اضاف المهمه
     public long time;// وقت انتاج المهمه
+    public String Shorttitle;
     public boolean isCompleted ; // هل تمت المهمة
 
     public long getKeyid() {
@@ -68,6 +69,15 @@ public class MyTasks {
         isCompleted = completed;
     }
 
+    public String getShorttitle()
+    {
+        return Shorttitle;
+    }
+
+    public void setShorttitle(String shorttitle) {
+        Shorttitle = shorttitle;
+    }
+
     @Override
     public String toString() {
         return "MyTasks{" +
@@ -77,7 +87,9 @@ public class MyTasks {
                 ", subjid=" + subjid +
                 ", userid=" + userid +
                 ", time=" + time +
+                ", Shorttitle='" + Shorttitle + '\'' +
                 ", isCompleted=" + isCompleted +
                 '}';
     }
+
 }
