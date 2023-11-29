@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -62,7 +63,19 @@ public class MainActivity2 extends AppCompatActivity {
         }
         spnrSubject2.setAdapter(subjectAdapter);
 
+
     }
+    public void onMenuItemSelected(AdapterView<?>adapterView,View view,int i,long l){
+        //استخراج  الموضوع حسب رقم الترتيبي
+        String item = subjectAdapter.getItem(i);
+        if(item.equals("All")) {//  هذه يعني عرض المهام
+            initiAlllistView    ();
+
+
+        }
+        else{
+            //
+        }
     /**
      * تجهيز قائمه جميع المهمات وعرضها ب list View
      */
@@ -78,20 +91,19 @@ public class MainActivity2 extends AppCompatActivity {
      * تجهيز قائمه المهمات حسب رقم الموضوع
      * @param key_id رقم الموضوع
      */
-//    private void initListViewBySubjId(Long key_id){
-//        AppDataBase db=AppDataBase.getDB(getApplicationContext());
-//        MyTasksQuery tasksQuery =db.getMyTaskQuery();
-//        //يجب اضافه عملية تعيد جميع المهمات حسب رقم الموضوع
-//        List<MyTasks> AllTasks=tasksQuery.getTasksBySubjId(key_id);
-//        ArrayAdapter<MyTasks>tasksArrayAdapter=new ArrayAdapter<MyTasks>(this,android.R.layout.simple_dropdown_item_1line);
-//        tasksArrayAdapter.addAll(AllTasks);
-//        lstvTasks.setAdapter(tasksArrayAdapter);
-//        spnrSubject2.setAdapter(spnrSubject2);
-//         public void onMenuItemSelected(AdapterView<>adapterView,View view,int i,long l){
-//             //استخراج  الموضوع حسب رقم الترتيبي
-//            String item = spnrSubject2.
-//        }
-//    }
+    private void initListViewBySubjId(long keyid) {
+        AppDataBase db = AppDataBase.getDB(getApplicationContext());
+        MyTasksQuery tasksQuery = db.getMyTaskQuery();
+        //يجب اضافه عملية تعيد جميع المهمات حسب رقم الموضوع
+        List<MyTasks> AllTasks = tasksQuery.getTasksBySubjId(keyid);
+        ArrayAdapter<MyTasks> tasksArrayAdapter = new ArrayAdapter<MyTasks>(this, android.R.layout.simple_dropdown_item_1line);
+        tasksArrayAdapter.addAll(AllTasks);
+        lstvTasks.setAdapter(tasksArrayAdapter);
+    }
+
+
+
+
     /**
      *
      * عملية تجهيز السبنر بالمواضيع
