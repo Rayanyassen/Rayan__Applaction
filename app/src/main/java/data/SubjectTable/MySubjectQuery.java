@@ -34,7 +34,7 @@ public interface MySubjectQuery {
     void update(MySubject... values);
     @Query("SELECT * FROM MySubject ")
     MySubject checkSubject(String autoetSubj);
-    List<MySubject> getAllSubject();
+
 
 
 

@@ -6,6 +6,7 @@ import androidx.appcompat.widget.SearchView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -17,6 +18,8 @@ import java.util.List;
 import data.AppDataBase;
 import data.SubjectTable.MySubject;
 import data.SubjectTable.MySubjectQuery;
+import data.myTasksTable.MyTasks;
+import data.myTasksTable.MyTasksQuery;
 
 public class MainActivity2 extends AppCompatActivity {
     private FloatingActionButton fabAdd;
@@ -46,25 +49,59 @@ public class MainActivity2 extends AppCompatActivity {
         lstvTasks = findViewById(R.id.lstvTasks);
 
     }
+    private void initSubjectSpnr () {
+        AppDataBase db = AppDataBase.getDB(getApplicationContext());//بناء قاعدة بيانات
+        MySubjectQuery subjectQuery = db.getMySubjectQuery();//عمليات جدول المواضيع
+        List<MySubject> allSubject = subjectQuery.getAll();//استخراج جميع المواضيع
+        //تجهيز الوسيط
+        ArrayAdapter<String> subjectAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line);
+        subjectAdapter.add("All");//ستظهر اولا بالسبنر تعني عرض جميع المهمات
+        for (MySubject subject : allSubject) {
+            //اضافه المواضيع للوسيط
+            subjectAdapter.add(subject.getTitle());
+        }
+        spnrSubject2.setAdapter(subjectAdapter);
 
+    }
     /**
+     * تجهيز قائمه جميع المهمات وعرضها ب list View
+     */
+    private void initiAlllistView(){
+        AppDataBase db=AppDataBase.getDB(getApplicationContext());
+        MyTasksQuery tasksQuery=db.getMyTaskQuery();
+        List<MyTasks>allTasks=tasksQuery.getallTasks();
+        ArrayAdapter<MyTasks>tasksArrayAdapter=new ArrayAdapter<MyTasks>(this, android.R.layout.simple_dropdown_item_1line);
+        tasksArrayAdapter.addAll(allTasks);
+        lstvTasks.setAdapter(tasksArrayAdapter);
+    }
+    /**
+     * تجهيز قائمه المهمات حسب رقم الموضوع
+     * @param key_id رقم الموضوع
+     */
+//    private void initListViewBySubjId(Long key_id){
+//        AppDataBase db=AppDataBase.getDB(getApplicationContext());
+//        MyTasksQuery tasksQuery =db.getMyTaskQuery();
+//        //يجب اضافه عملية تعيد جميع المهمات حسب رقم الموضوع
+//        List<MyTasks> AllTasks=tasksQuery.getTasksBySubjId(key_id);
+//        ArrayAdapter<MyTasks>tasksArrayAdapter=new ArrayAdapter<MyTasks>(this,android.R.layout.simple_dropdown_item_1line);
+//        tasksArrayAdapter.addAll(AllTasks);
+//        lstvTasks.setAdapter(tasksArrayAdapter);
+//        spnrSubject2.setAdapter(spnrSubject2);
+//         public void onMenuItemSelected(AdapterView<>adapterView,View view,int i,long l){
+//             //استخراج  الموضوع حسب رقم الترتيبي
+//            String item = spnrSubject2.
+//        }
+//    }
+    /**
+     *
      * عملية تجهيز السبنر بالمواضيع
      */
     @Override
     protected void onResume() {
-        private void initSubjectSpnr () {
-            AppDataBase db = AppDataBase.getDB(getApplicationContext());//بناء قاعدة بيانات
-            MySubjectQuery subjectQuery = db.getMySubjectQuery();//عمليات جدول المواضيع
-            List<MySubject> allSubject = subjectQuery.getAll();//استخراج جميع المواضيع
-            //تجهيز الوسيط
-            ArrayAdapter<String> subjectAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line);
-            subjectAdapter.add("All");//ستظهر اولا بالسبنر تعني عرض جميع المهمات
-            for (MySubject subject : allSubject) {
-                //اضافه المواضيع للوسيط
-                subjectAdapter.add(subject.getTitle());
-            }
-            spnrSubject2.setAdapter(subjectAdapter);
-        }
+        super.onResume();
+        initSubjectSpnr();
+        initiAlllistView();
+
 
     }
 }

@@ -64,8 +64,8 @@ List<MyTasks> getallTasksOrderBYuserid(long userId_pp);
     @Query("DELETE FROM  Mytasks WHERE keyid=:kid  ")
     void deletTask(long  kid);
 
-
-
+    @Query( "SELECT * FROM MyTasks WHERE subjid=:mySubjId")
+    List<MyTasks> getTasksBySubjId(long mySubjId);
 
 
 }
