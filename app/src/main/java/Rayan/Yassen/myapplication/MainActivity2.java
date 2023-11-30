@@ -62,20 +62,31 @@ public class MainActivity2 extends AppCompatActivity {
             subjectAdapter.add(subject.getTitle());
         }
         spnrSubject2.setAdapter(subjectAdapter);
+        spnrSubject2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int i, long id) {
+                // استخراج الموضوع حسب رقم الترتيبي
+                String item=subjectAdapter.getItem(i);
+                if(item.equals("All")){
+                    initiAlllistView();
+                }
+                else{
+                    // استخراج كائن الموضوع الذي اخترناه لاستخراج رقمه id
+                    MySubject subject=subjectQuery.checkSubject(item);
+                    //استدعاء العمليه التي تجهز القائمه حسب رقم الموضوع  id
+                    initListViewBySubjId(subject.getKeyid());
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
 
     }
-    public void onMenuItemSelected(AdapterView<?>adapterView,View view,int i,long l){
-        //استخراج  الموضوع حسب رقم الترتيبي
-        String item = subjectAdapter.getItem(i);
-        if(item.equals("All")) {//  هذه يعني عرض المهام
-            initiAlllistView    ();
 
-
-        }
-        else{
-            //
-        }
     /**
      * تجهيز قائمه جميع المهمات وعرضها ب list View
      */
@@ -89,7 +100,7 @@ public class MainActivity2 extends AppCompatActivity {
     }
     /**
      * تجهيز قائمه المهمات حسب رقم الموضوع
-     * @param key_id رقم الموضوع
+     * @param keyid رقم الموضوع
      */
     private void initListViewBySubjId(long keyid) {
         AppDataBase db = AppDataBase.getDB(getApplicationContext());
@@ -100,8 +111,6 @@ public class MainActivity2 extends AppCompatActivity {
         tasksArrayAdapter.addAll(AllTasks);
         lstvTasks.setAdapter(tasksArrayAdapter);
     }
-
-
 
 
     /**
