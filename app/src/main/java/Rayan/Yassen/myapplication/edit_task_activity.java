@@ -2,6 +2,7 @@ package Rayan.Yassen.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +33,15 @@ public class edit_task_activity extends AppCompatActivity {
         skbrImportance=findViewById(R.id.skbrImportance);
         etShortTitle=findViewById(R.id.etShortTitle);
         etText=findViewById(R.id.etText);
+
+    }
+    private void onClickUpdate() {
+        Intent i = new Intent(edit_task_activity.this, MainActivity2.class);
+        startActivity(i);
+        finish();
+    }
+    private void OnClickCancel(){
+        finish();
 
     }
 

@@ -29,7 +29,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
-                android:text="Update" />
+                android:text="Update"
+                android:onClick="onClickUpdate"
+                />
 
             <Button
                 android:id="@+id/BTNCancel"
@@ -37,6 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
+                android:onClick="OnClickCancel"
                 android:text="Cancel" />
 
         </LinearLayout>

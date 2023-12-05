@@ -37,9 +37,8 @@ public class MainActivity2 extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                Intent i = new Intent(MainActivity2.this, AddTaskActivty.class);
+                Intent i=new Intent(MainActivity2.this,AddTaskActivty.class);
                 startActivity(i);
-                //to close current activity
                 finish();
             }
         });
@@ -125,4 +124,6 @@ public class MainActivity2 extends AppCompatActivity {
 
 
     }
+
+
 }

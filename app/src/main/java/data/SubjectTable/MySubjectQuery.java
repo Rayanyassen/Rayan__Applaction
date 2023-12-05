@@ -32,7 +32,7 @@ public interface MySubjectQuery {
 
     @Update
     void update(MySubject... values);
-    @Query("SELECT * FROM MySubject ")
+    @Query("SELECT * FROM MySubject WHERE Title=:autoetSubj")
     MySubject checkSubject(String autoetSubj);
 
 

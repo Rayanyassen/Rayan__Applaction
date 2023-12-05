@@ -63,7 +63,7 @@ public class SignIn extends AppCompatActivity {
 
         }
         if(isAllok){
-            Toast.makeText(this,"All Ok" , Toast.LENGTH_SHORT).show();
+
             //بناء قاعدة وارجاع مؤشر عليها1
             AppDataBase db=AppDataBase.getDB(getApplicationContext());
             //مؤشر لكائن عمليات الجدول2
@@ -77,9 +77,10 @@ public class SignIn extends AppCompatActivity {
             }
             else
             {//ان كان هنالك حساب الايميل و الباسورد ننتقل الى الشاشه الرئيسية
+                Toast.makeText(this,"All Ok" , Toast.LENGTH_SHORT).show();
                 Intent i=new Intent(SignIn.this,MainActivity2.class);
                 startActivity(i);
-                finish();
+               finish();
             }
         }
     }
