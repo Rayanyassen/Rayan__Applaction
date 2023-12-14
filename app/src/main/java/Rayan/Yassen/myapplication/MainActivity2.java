@@ -5,12 +5,14 @@ import androidx.appcompat.widget.SearchView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -96,6 +98,19 @@ public class MainActivity2 extends AppCompatActivity {
         ArrayAdapter<MyTasks>tasksArrayAdapter=new ArrayAdapter<MyTasks>(this, android.R.layout.simple_dropdown_item_1line);
         tasksArrayAdapter.addAll(allTasks);
         lstvTasks.setAdapter(tasksArrayAdapter);
+        lstvTasks.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        }
+        );
     }
     /**
      * تجهيز قائمه المهمات حسب رقم الموضوع
@@ -122,6 +137,30 @@ public class MainActivity2 extends AppCompatActivity {
         initSubjectSpnr();
         initiAlllistView();
 
+
+    }
+
+
+
+    @Override//بناء القائمه
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected( MenuItem item) {
+        if (item.getItemId() == R.id.itmsetting) {
+            Toast.makeText(this, "Setting", Toast.LENGTH_SHORT).show();
+            Intent i= new Intent(MainActivity2.this,SettingActivty.class);
+            startActivity(i);
+        }
+        if (item.getItemId() == R.id.itmSignOut) {
+            Toast.makeText(this, "Log Out", Toast.LENGTH_SHORT).show();
+
+
+        }
+        return true ;
 
     }
 
