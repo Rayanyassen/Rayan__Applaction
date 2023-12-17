@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
@@ -98,10 +99,10 @@ public class MainActivity2 extends AppCompatActivity {
         ArrayAdapter<MyTasks>tasksArrayAdapter=new ArrayAdapter<MyTasks>(this, android.R.layout.simple_dropdown_item_1line);
         tasksArrayAdapter.addAll(allTasks);
         lstvTasks.setAdapter(tasksArrayAdapter);
-        lstvTasks.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        lstvTasks.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()    {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+            public void onItemSelected(AdapterView<?> parent, View view, int i, long id) {
+                showPopUpMenu(view,tasksArrayAdapter.getItem(i));
 
             }
 
@@ -109,8 +110,10 @@ public class MainActivity2 extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
+
         }
         );
+
     }
     /**
      * تجهيز قائمه المهمات حسب رقم الموضوع
@@ -163,6 +166,36 @@ public class MainActivity2 extends AppCompatActivity {
         return true ;
 
     }
+    public void showPopUpMenu(View v, MyTasks t){
+        //popup menu بناء قائمه
+        PopupMenu popup = new PopupMenu(this,v);//الكائن الذي سبب فتح القائمه v
+        //ملف القائمه
+        popup.inflate(R.menu.popup_menu);
+        //اضافه معالج حدث لاختيار عنصر من القائمه
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuitem) {
+                if (menuitem.getItemId()==R.id.itmaddtask){
+                    Toast.makeText(MainActivity2.this,"Add",Toast.LENGTH_SHORT).show();;
+                    Intent i=new Intent(MainActivity2.this,AddTaskActivty.class);
+                    startActivity(i);
+                }
+                if (menuitem.getItemId()==R.id.itmdelete){
+                    Toast.makeText(MainActivity2.this,"Delete",Toast.LENGTH_SHORT).show();
+                }
+                if (menuitem.getItemId()==R.id.itmedit) {
+                    Toast.makeText(MainActivity2.this, "Edit", Toast.LENGTH_SHORT).show();
+                }
+                return true;
+            }
+        });
+        popup.show();
+
+    }
 
 
-}
+            }
+
+
+
+
