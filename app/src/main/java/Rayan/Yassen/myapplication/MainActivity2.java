@@ -141,7 +141,7 @@ public class MainActivity2 extends AppCompatActivity {
         super.onResume();
         initSubjectSpnr();
         initiAlllistView();
-        ShowNoYesDialog();
+
 
 
     }
@@ -163,7 +163,7 @@ public class MainActivity2 extends AppCompatActivity {
         }
         if (item.getItemId() == R.id.itmSignOut) {
             Toast.makeText(this, "Log Out", Toast.LENGTH_SHORT).show();
-
+            ShowNoYesDialog();
 
         }
         return true ;
