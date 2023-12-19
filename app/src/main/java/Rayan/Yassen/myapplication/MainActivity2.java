@@ -1,8 +1,10 @@
 package Rayan.Yassen.myapplication;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -139,6 +141,7 @@ public class MainActivity2 extends AppCompatActivity {
         super.onResume();
         initSubjectSpnr();
         initiAlllistView();
+        ShowNoYesDialog();
 
 
     }
@@ -182,6 +185,11 @@ public class MainActivity2 extends AppCompatActivity {
                 }
                 if (menuitem.getItemId()==R.id.itmdelete){
                     Toast.makeText(MainActivity2.this,"Delete",Toast.LENGTH_SHORT).show();
+                    AppDataBase db= AppDataBase.getDB(MainActivity2.this);
+                    MyTasksQuery myTasksQuery=db.getMyTaskQuery();
+                    myTasksQuery.deletTask(menuitem.getItemId());
+                    initiAlllistView();
+                    initSubjectSpnr();
                 }
                 if (menuitem.getItemId()==R.id.itmedit) {
                     Toast.makeText(MainActivity2.this, "Edit", Toast.LENGTH_SHORT).show();
@@ -191,6 +199,24 @@ public class MainActivity2 extends AppCompatActivity {
         });
         popup.show();
 
+    }
+    public void ShowNoYesDialog()
+    {
+        //تجهيز بناء شباك حوار "ديالوغ" يتلقى بارمتر مؤشر للنشاط (اكتفيتي) الحالي
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setTitle("Log out");// تحديد العنوان
+        builder.setMessage("Are you sure?");//تحديد فحوى الشباك الحوار
+        //النص على الزر ومعالج الحدث
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //معالجه الحدث للموافقه
+                Toast.makeText(MainActivity2.this,"Signing out",Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+        AlertDialog dialog= builder.create();// بناء شباك حوار - ديالوغ
+        dialog.show();//عرض الشباك
     }
 
 
