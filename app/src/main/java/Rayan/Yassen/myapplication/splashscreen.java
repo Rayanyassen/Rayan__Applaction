@@ -3,24 +3,16 @@ package Rayan.Yassen.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputLayout;
 
-import java.util.List;
-import java.util.logging.LogRecord;
-
-import data.AppDataBase;
-import data.SubjectTable.MySubject;
-import data.SubjectTable.MySubjectQuery;
 
 
 public class splashscreen extends AppCompatActivity {

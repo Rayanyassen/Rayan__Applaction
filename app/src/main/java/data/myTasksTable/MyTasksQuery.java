@@ -13,10 +13,10 @@ import java.util.List;
  */
 @Dao
 public interface MyTasksQuery {
-    /**
-     *اعاده جميع معطيات جدول المهمات
-     * @return *اعاده قائمه من المهمات
-     */
+        /**
+         *اعاده جميع معطيات جدول المهمات
+         * @return *اعاده قائمه من المهمات
+         */
     @Query("SELECT * FROM mytasks")
     List<MyTasks> getallTasks();
 
