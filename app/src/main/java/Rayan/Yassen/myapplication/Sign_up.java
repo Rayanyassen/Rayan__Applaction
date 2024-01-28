@@ -1,5 +1,6 @@
 package Rayan.Yassen.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,8 +9,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.Firebase;
+import com.google.firebase.auth.FirebaseAuth;
 
 import data.AppDataBase;
 import data.usersTable.myUsersQuery;
@@ -36,7 +41,6 @@ public class Sign_up extends AppCompatActivity {
         btnsavesignup = findViewById(R.id.btnsavesignup);
         btnCancel = findViewById(R.id.btnCancel);
     }
-
 
 
     private void checkEmailPassw() {
@@ -80,33 +84,31 @@ public class Sign_up extends AppCompatActivity {
         if (isAllok) {
             Toast.makeText(this, "All Ok", Toast.LENGTH_SHORT).show();
             AppDataBase db = AppDataBase.getDB(getApplicationContext());
-            myUsersQuery usersQuery=db.getMyUserQuery();
+            myUsersQuery usersQuery = db.getMyUserQuery();
             //فحص هل البريد الالكتروني موجود من قبل اي تم تسجيل من قبل
-            if(usersQuery.checkEmail(email)!=null){
+            if (usersQuery.checkEmail(email) != null) {
                 Et_emailsignup.setError("found Email");
-            }
-            else// ان لم يكن موجودا نقوم ببناء كاءن للمستعمل وادخاله في الجدول Myuser المستعملين
+            } else// ان لم يكن موجودا نقوم ببناء كاءن للمستعمل وادخاله في الجدول Myuser المستعملين
             {
                 // بناء الكائن
-                myusers myuser= new myusers();
+                myusers myuser = new myusers();
                 //تحديد قيم الصفات بالقيم التي استخرجناها
-                myuser.email=email;
-                myuser.fullName=name;
-                myuser.phone=phone;
-                myuser.passw=password;
+                myuser.email = email;
+                myuser.fullName = name;
+                myuser.phone = phone;
+                myuser.passw = password;
                 //اضافه الكائن الجديد للجدول
                 usersQuery.insert(myuser);
                 //اغلاق الشاشه الحالية
                 finish();
-           }
-
+            }
 
 
         }
 
     }
-    public void onclickBTNSAVE(View V)
-    {
+
+    public void onclickBTNSAVE(View V) {
         checkEmailPassw();
         Intent i = new Intent(Sign_up.this, SignIn.class);
         startActivity(i);
@@ -114,13 +116,99 @@ public class Sign_up extends AppCompatActivity {
         finish();
 
 
-
     }
-    public void onclickBTNCancel(View v){
+
+    public void onclickBTNCancel(View v) {
         Intent i = new Intent(Sign_up.this, SignIn.class);
         startActivity(i);
         //to close current activity
         finish();
     }
 
+    public void checkAndSignUP_FB() {
+
+
+        boolean isAllok = true; //يفحص الحقول ان كانت سليمة
+        //استخراج النص من حقل الايميل
+        String email = Et_emailsignup.getText().toString();
+        //استخراج نص كلمه المرور
+        String password = ETpassword.getText().toString();
+        //استخراج نص اعادة كلمه المرور
+        String repassword = ETrepassword.getText().toString();
+        // استخراج نص من رقم هاتف
+        String phone = ETphone.getText().toString();
+        //استخراج نص لأسمك
+        String name = ETname.getText().toString();
+
+        //فحص الايمل ان كان طوله اقل من 6 او لا يحوي @ فهو خطأ
+        if (email.length() < 6 || email.contains("@") == false) {
+            //تعديل المتغير ليدل على ان الفحص يهطي نتيجه خاطئه
+            isAllok = false;
+            // عرض ملاحظه خطا على الشاشه داخل حقل البريد
+            Et_emailsignup.setError("Wrong Email");
+
+        }
+        if (password.length() <= 8 || password.length() >= 20 || password.contains(" ") == true) {
+            isAllok = false;
+            ETpassword.setError("Password between 8 - 20 letters");
+        }
+        if (!repassword.equals(password)) {
+            isAllok = false;
+            ETrepassword.setError("should be the same password");
+        }
+
+
+        if (phone.length() > 10 || phone.contains(" ") == true) {
+            isAllok = false;
+            ETphone.setError("phone number is 10 numbers");
+
+        }
+        if(isAllok){
+            // עצם לביצוע רישום كائن لعملية التسجيل
+            FirebaseAuth auth=FirebaseAuth.getInstance();
+            // יצירת חשבון בעזרת  מיל וסיסמא
+            auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener()
+            {
+                @Override
+                public void onComplete(@NonNull Task task) {//הפרמטר מכיל מהרשמת על תוצאת הבקשה לרישום
+                    if(task.isSuccessful()){//אם הפעולה הצליחה
+                        Toast.makeText(Sign_up.this,"Signing up Succeeded",Toast.LENGTH_SHORT).show();
+                        finish();
+
+                }
+                    else{
+                        Toast.makeText(Sign_up.this, "Signing up failed",Toast.LENGTH_SHORT).show();
+                        Et_emailsignup.setError(task.getException().getMessage());//הצגת הוד
+                    }
+            });
+        }
+
+
+        if (isAllok) {
+            Toast.makeText(this, "All Ok", Toast.LENGTH_SHORT).show();
+            AppDataBase db = AppDataBase.getDB(getApplicationContext());
+            myUsersQuery usersQuery = db.getMyUserQuery();
+            //فحص هل البريد الالكتروني موجود من قبل اي تم تسجيل من قبل
+            if (usersQuery.checkEmail(email) != null) {
+                Et_emailsignup.setError("found Email");
+            } else// ان لم يكن موجودا نقوم ببناء كاءن للمستعمل وادخاله في الجدول Myuser المستعملين
+            {
+                // بناء الكائن
+                myusers myuser = new myusers();
+                //تحديد قيم الصفات بالقيم التي استخرجناها
+                myuser.email = email;
+                myuser.fullName = name;
+                myuser.phone = phone;
+                myuser.passw = password;
+                //اضافه الكائن الجديد للجدول
+                usersQuery.insert(myuser);
+                //اغلاق الشاشه الحالية
+                finish();
+            }
+
+
+        }
+
+
+    }
 }
