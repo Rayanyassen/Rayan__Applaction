@@ -7,6 +7,25 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:823596720479:android:6ad6c6da92667b9a2d56ea",
+        "android_client_info": {
+          "package_name": "RY.Yassen.finalapplaction"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtBHKW5iyuWdLtVSY8ejgfDZuL0Q654nA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:823596720479:android:a6b3ca80012ec2a72d56ea",
         "android_client_info": {
           "package_name": "Rayan.Yassen.myapplication"

@@ -72,35 +72,35 @@ public class splashscreen extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.d("yassen", "onRestart: ");
-        Toast.makeText(this, "onRestart:",Toast.LENGTH_SHORT).show();
+        Log.d("yassen", "");
+        Toast.makeText(this, "",Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d("yassen", "onResume: ");
-        Toast.makeText(this, "onResume:",Toast.LENGTH_SHORT).show();
+        Log.d("yassen", " ");
+        Toast.makeText(this, "",Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d("yassen", "onPause: ");
-        Toast.makeText(this, "onPause:",Toast.LENGTH_SHORT).show();
+        Log.d("yassen", " ");
+        Toast.makeText(this, "",Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d("yassen", "onStop: ");
-        Toast.makeText(this, "onStop:",Toast.LENGTH_SHORT).show();
+        Log.d("yassen", "");
+        Toast.makeText(this, "",Toast.LENGTH_SHORT).show();
     }
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d("yassen", "onDestroy: ");
-        Toast.makeText(this, "onDestroy:",Toast.LENGTH_SHORT).show();
+        Log.d("yassen", " ");
+        Toast.makeText(this, "",Toast.LENGTH_SHORT).show();
     }
 
 
