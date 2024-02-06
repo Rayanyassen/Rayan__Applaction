@@ -42,33 +42,9 @@ public class SignIn extends AppCompatActivity {
         //to close current activity
         finish();
     }
+
+
     private void checkEmailPassw_FB() {
-        boolean isAllok = true; //يفحص الحقول ان كانت سليمة
-        //استخراج النص من حقل الايميل
-        String email = Et_E_mail.getText().toString();
-        //استخراج نص كلمه المرور
-        String password = Et_Password.getText().toString();
-
-
-        //فحص الايمل ان كان طوله اقل من 6 او لا يحوي @ فهو خطأ
-        if (email.length() < 6 || email.contains("@") == false) {
-            //تعديل المتغير ليدل على ان الفحص يهطي نتيجه خاطئه
-            isAllok = false;
-            // عرض ملاحظه خطا على الشاشه داخل حقل البريد
-            Et_E_mail.setError("Wrong Email");
-
-        }
-        if(password.length()< 8||password.contains(" ")==true)
-        {
-            isAllok=false;
-            Et_Password.setError("Wrong Password");
-
-        }
-
-
-    }
-
-    private void checkEmailPassw_FB2() {
         boolean isAllok = true; //يفحص الحقول ان كانت سليمة
         //استخراج النص من حقل الايميل
         String email = Et_E_mail.getText().toString();
@@ -113,55 +89,11 @@ public class SignIn extends AppCompatActivity {
     }
 
 
-    private void checkEmailPassw() {
-        boolean isAllok = true; //يفحص الحقول ان كانت سليمة
-        //استخراج النص من حقل الايميل
-        String email = Et_E_mail.getText().toString();
-        //استخراج نص كلمه المرور
-        String password = Et_Password.getText().toString();
 
 
-        //فحص الايمل ان كان طوله اقل من 6 او لا يحوي @ فهو خطأ
-        if (email.length() < 6 || email.contains("@") == false) {
-            //تعديل المتغير ليدل على ان الفحص يهطي نتيجه خاطئه
-            isAllok = false;
-            // عرض ملاحظه خطا على الشاشه داخل حقل البريد
-            Et_E_mail.setError("Wrong Email");
-
-        }
-        if(password.length()< 8||password.contains(" ")==true)
-        {
-            isAllok=false;
-            Et_Password.setError("Wrong Password");
-
-        }
-        if(isAllok){
-
-            //بناء قاعدة وارجاع مؤشر عليها1
-            AppDataBase db=AppDataBase.getDB(getApplicationContext());
-            //مؤشر لكائن عمليات الجدول2
-            myUsersQuery usersQuery=db.getMyUserQuery();
-            //استدعاء العملية التي تنفذ الاستعلام الذي يفحص البريد و كلمة المرور ويعيد كائنا ان كان موجودا او ان لم يكن موجود null
-            myusers myUser=usersQuery.checkEmailPassw(email,password);
-            if(myUser==null)//هل لا يوجد كائن حسب الايميل والباسورد
-            {
-                Toast.makeText(this,"Wrong Email or Password ", Toast.LENGTH_LONG).show();
-
-            }
-            else
-            {//ان كان هنالك حساب الايميل و الباسورد ننتقل الى الشاشه الرئيسية
-                Toast.makeText(this,"All Ok" , Toast.LENGTH_SHORT).show();
-                Intent i=new Intent(SignIn.this,MainActivity2.class);
-                startActivity(i);
-                finish();
-            }
-        }
-    }
     public void onclickbtn_signIn(View v)
     {
-        checkEmailPassw();
-
-
+        checkEmailPassw_FB();
     }
     }
 
