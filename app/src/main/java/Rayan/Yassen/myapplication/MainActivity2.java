@@ -18,6 +18,7 @@ import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
@@ -152,10 +153,13 @@ public class MainActivity2 extends AppCompatActivity {
     public boolean onCreateOptionsMenu(android.view.Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
+
     }
+
 
     @Override
     public boolean onOptionsItemSelected( MenuItem item) {
+
         if (item.getItemId() == R.id.itmsetting) {
             Toast.makeText(this, "Setting", Toast.LENGTH_SHORT).show();
             Intent i= new Intent(MainActivity2.this,SettingActivty.class);
@@ -163,7 +167,7 @@ public class MainActivity2 extends AppCompatActivity {
         }
         if (item.getItemId() == R.id.itmSignOut) {
             Toast.makeText(this, "Log Out", Toast.LENGTH_SHORT).show();
-            ShowNoYesDialog();
+            FirebaseAuth.getInstance().signOut();
 
         }
         return true ;
