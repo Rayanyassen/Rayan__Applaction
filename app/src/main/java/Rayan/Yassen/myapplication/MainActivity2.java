@@ -168,7 +168,7 @@ public class MainActivity2 extends AppCompatActivity {
         if (item.getItemId() == R.id.itmSignOut) {
             Toast.makeText(this, "Log Out", Toast.LENGTH_SHORT).show();
             FirebaseAuth.getInstance().signOut();
-
+            finish();
         }
         return true ;
 
@@ -217,6 +217,7 @@ public class MainActivity2 extends AppCompatActivity {
                 //معالجه الحدث للموافقه
                 Toast.makeText(MainActivity2.this,"Signing out",Toast.LENGTH_SHORT).show();
                 finish();
+
             }
         });
         AlertDialog dialog= builder.create();// بناء شباك حوار - ديالوغ

@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.Firebase;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 
 import data.AppDataBase;
@@ -40,6 +41,7 @@ public class Sign_up extends AppCompatActivity {
         ETphone = findViewById(R.id.ETphone);
         btnsavesignup = findViewById(R.id.btnsavesignup);
         btnCancel = findViewById(R.id.btnCancel);
+        FirebaseApp.initializeApp(this);
     }
 
     public void checkAndSignUP_FB() {
@@ -81,6 +83,7 @@ public class Sign_up extends AppCompatActivity {
 
         }
         if(isAllok){
+
             // עצם לביצוע רישום كائن لعملية التسجيل
             FirebaseAuth auth=FirebaseAuth.getInstance();
             // יצירת חשבון בעזרת  מיל וסיסמא
@@ -101,10 +104,6 @@ public class Sign_up extends AppCompatActivity {
     }
     public void onclickBTNSAVE(View V) {
         checkAndSignUP_FB();
-        Intent i = new Intent(Sign_up.this, SignIn.class);
-        startActivity(i);
-        //to close current activity
-        finish();
 
 
     }
